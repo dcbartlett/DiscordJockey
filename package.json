@@ -1,0 +1,24 @@
+{
+  "name": "discordjockey",
+  "version": "0.0.1",
+  "description": "Discord Dj Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Discord",
+    "Dj",
+    "Music",
+    "Radio"
+  ],
+  "author": "Dennis Bartlett",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^8.1.0",
+    "discordie": "^0.7.6",
+    "google-speech-api": "^1.2.0",
+    "node-microphone": "0.0.2",
+    "youtube-audio-stream": "0.0.26"
+  }
+}
