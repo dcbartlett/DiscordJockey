@@ -36,19 +36,15 @@ discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
 	if (e.message.content.indexOf("!play2") > -1) {
 		var message = e.message.content.split(' ').slice(1,e.message.content.length-1);
 
+		var voiceEncoder = getVoiceEncoder();
+
 		getAudio({
 			videoId: 'Xl2iBl7nHE8'
 		}, function(stream) {
 			ffmpeg()
-				.input(ytdl(url, {
-					filter: function(f) {
-						return f.container === 'mp4' && !f.audioEncoding;
-					}
-				}))
-				.videoCodec('copy')
-				.input(audioOutput)
+				.input(stream)
 				.audioCodec('copy')
-				.save(stream)
+				.save(voiceEncoder)
 				.on('error', console.error)
 			stream.once('end', () => console.log("stream end"));
 		});
@@ -93,8 +89,6 @@ function getVoiceEncoder(options) {
 	if (!info) {
 		return console.log("Voice not connected");
 	}
-
-	console.log(info.voiceConnection.getEncoderStream(options));
 
 	var encoderStream = info.voiceConnection.getEncoderStream(options);
 	if (!encoderStream) {
