@@ -17,6 +17,7 @@
   "dependencies": {
     "discord.js": "^8.1.0",
     "discordie": "^0.7.6",
+    "fluent-ffmpeg": "^2.1.0",
     "google-speech-api": "^1.2.0",
     "moment": "^2.14.1",
     "node-microphone": "0.0.2",
