@@ -41,12 +41,10 @@ discordClient.Dispatcher.on("MESSAGE_CREATE", e => {
 		getAudio({
 			videoId: 'Xl2iBl7nHE8'
 		}, function(stream) {
-			ffmpeg()
-				.input(stream)
+			ffmpeg(stream)
 				.audioCodec('copy')
-				.save(voiceEncoder)
+				.output(voiceEncoder)
 				.on('error', console.error)
-			stream.once('end', () => console.log("stream end"));
 		});
 	}
 });
